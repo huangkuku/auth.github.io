@@ -2,7 +2,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const workoutRouter = require("./routes/workouts");   // workouts的路由器模組
-const userRouter = require("./routes/user");   // user的路由器模組
+const userRoutes = require("./routes/user");   // user的路由器模組
 // 解決 'Uncaught in promise unexpected token <doctype + Invalid options object. Dev Server has been initialized using object that does no match the API schema. - options.allowedHosts[0] should  be a non-empty string.
 const cors = require("cors")
 
@@ -19,9 +19,9 @@ app.use(cors({
     origin: 'http://localhost:3000', // 設置允許訪問的源（即React應用程式所在的端口）
 }));
 // routes
-// use workoutRouter route
+// use workoutRouter and userRouter route
 app.use("/api/workouts",workoutRouter);
-app.use("/api/user",userRouter);
+app.use("/api/user",userRoutes);
 
 // mongoDB const collection = db.collection("member"); collection = db.collection("diary");
 // is different PangPang teach the url of mongoDB to connect...
